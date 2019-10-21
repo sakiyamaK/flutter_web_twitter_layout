@@ -13,14 +13,34 @@ class _TwitterRightWidgetState extends State<TwitterRightWidget> {
       fontSize: 20.0,
     );
 
+    var searchBar = Container(
+        height: 45,
+        decoration: BoxDecoration(
+          color: Colors.grey[200],
+          border: Border.all(color: Colors.grey),
+          borderRadius: BorderRadius.circular(25),
+        ),
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 15),
+          child: Row(
+            children: [
+              Icon(Icons.search),
+              Container(
+                padding: EdgeInsets.only(left: 20),
+                child: Text(
+                  "キーワード検索",
+                  style: textStyle,
+                ),
+              )
+            ],
+          ),
+        ));
+
     return Container(
         padding: EdgeInsets.all(10),
         child: Column(
           children: [
-            Text(
-              "キーワード検索",
-              style: textStyle,
-            ),
+            searchBar,
             Container(
               height: 50,
             ),
