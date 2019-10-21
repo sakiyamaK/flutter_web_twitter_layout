@@ -1,6 +1,6 @@
-# flutter_twitter_layout
+# flutter_web_twitter_layout
 
-A new Flutter project.
+flutter for webでtwitterのレスポンシブの動作を真似てみた
 
 ## Getting Started
 
