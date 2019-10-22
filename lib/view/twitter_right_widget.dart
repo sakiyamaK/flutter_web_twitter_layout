@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_twitter_layout/utility/twitter_manager.dart';
 
 class TwitterRightWidget extends StatefulWidget {
   TwitterRightWidget({Key key}) : super(key: key);
@@ -13,6 +14,16 @@ class _TwitterRightWidgetState extends State<TwitterRightWidget> {
       fontSize: 20.0,
       color: Colors.grey[250],
     );
+
+    Widget createRecommendRow(title) {
+      return Container(
+        padding: EdgeInsets.only(bottom: 10),
+        child: Text(
+          title,
+          style: textStyle,
+        ),
+      );
+    }
 
     var searchBar = Container(
         height: 45,
@@ -36,11 +47,6 @@ class _TwitterRightWidgetState extends State<TwitterRightWidget> {
             ],
           ),
         ));
-
-    var border = Container(
-      height: 1,
-      color: Colors.grey,
-    );
 
     var recomendTrendBox = Container(
       padding: EdgeInsets.all(10),
@@ -66,39 +72,15 @@ class _TwitterRightWidgetState extends State<TwitterRightWidget> {
               ],
             ),
           ),
-          border,
-          Container(
-            padding: EdgeInsets.only(bottom: 10),
-            child: Text(
-              "aaaaa",
-              style: textStyle,
-            ),
-          ),
-          border,
-          Container(
-            padding: EdgeInsets.only(bottom: 10),
-            child: Text(
-              "aaaaa",
-              style: textStyle,
-            ),
-          ),
-          border,
-          Container(
-            padding: EdgeInsets.only(bottom: 10),
-            child: Text(
-              "aaaaa",
-              style: textStyle,
-            ),
-          ),
-          border,
-          Container(
-            padding: EdgeInsets.only(bottom: 10),
-            child: Text(
-              "aaaaa",
-              style: textStyle,
-            ),
-          ),
-          border,
+          TwitterCommonPartsManager.shared.border,
+          createRecommendRow("aaaaaa"),
+          TwitterCommonPartsManager.shared.border,
+          createRecommendRow("aaaaaa"),
+          TwitterCommonPartsManager.shared.border,
+          createRecommendRow("aaaaaa"),
+          TwitterCommonPartsManager.shared.border,
+          createRecommendRow("aaaaaa"),
+          TwitterCommonPartsManager.shared.border,
           Container(
             padding: EdgeInsets.symmetric(vertical: 10),
             child: Text(
@@ -113,7 +95,38 @@ class _TwitterRightWidgetState extends State<TwitterRightWidget> {
       ),
     );
 
-    var chips = Row(
+    var recomendUserBox = Container(
+      padding: EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: Colors.grey[200],
+        border: Border.all(color: Colors.grey[200]),
+        borderRadius: BorderRadius.circular(25),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 3),
+            child: Text(
+              "おすすめユーザ",
+              style: textStyle,
+            ),
+          ),
+          TwitterCommonPartsManager.shared.border,
+          createRecommendRow("aaaaaa"),
+          TwitterCommonPartsManager.shared.border,
+          createRecommendRow("aaaaaa"),
+          TwitterCommonPartsManager.shared.border,
+          createRecommendRow("aaaaaa"),
+          TwitterCommonPartsManager.shared.border,
+          createRecommendRow("aaaaaa"),
+          TwitterCommonPartsManager.shared.border,
+          createRecommendRow("aaaaaa"),
+        ],
+      ),
+    );
+
+    var others = Row(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -136,70 +149,6 @@ class _TwitterRightWidgetState extends State<TwitterRightWidget> {
       ],
     );
 
-    var recomendUserBox = Container(
-      padding: EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        color: Colors.grey[200],
-        border: Border.all(color: Colors.grey[200]),
-        borderRadius: BorderRadius.circular(25),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 3),
-            child: Text(
-              "おすすめユーザ",
-              style: textStyle,
-            ),
-          ),
-          border,
-          Container(
-            padding: EdgeInsets.only(bottom: 10),
-            child: Text(
-              "aaaaa",
-              style: textStyle,
-            ),
-          ),
-          border,
-          Container(
-            padding: EdgeInsets.only(bottom: 10),
-            child: Text(
-              "aaaaa",
-              style: textStyle,
-            ),
-          ),
-          border,
-          Container(
-            padding: EdgeInsets.only(bottom: 10),
-            child: Text(
-              "aaaaa",
-              style: textStyle,
-            ),
-          ),
-          border,
-          Container(
-            padding: EdgeInsets.only(bottom: 10),
-            child: Text(
-              "aaaaa",
-              style: textStyle,
-            ),
-          ),
-          border,
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 10),
-            child: Text(
-              "さらに表示",
-              style: TextStyle(
-                fontSize: 20.0,
-                color: Colors.blue,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-
     return Container(
       padding: EdgeInsets.fromLTRB(30, 10, 20, 10),
       child: Column(
@@ -216,7 +165,7 @@ class _TwitterRightWidgetState extends State<TwitterRightWidget> {
           Container(
             height: 50,
           ),
-          chips
+          others
         ],
       ),
     );
