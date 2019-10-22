@@ -2,6 +2,8 @@
 
 flutter for webでtwitterのレスポンシブの動作を真似てみた
 
+[![Image from Gyazo](https://i.gyazo.com/5891789e5fdf1af812af6c1a851b8faa.png)](https://gyazo.com/5891789e5fdf1af812af6c1a851b8faa)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
