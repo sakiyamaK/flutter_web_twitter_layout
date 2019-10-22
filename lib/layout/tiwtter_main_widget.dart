@@ -9,6 +9,21 @@ class TwitterMainWidget extends StatefulWidget {
 class _TwitterMainWidgetState extends State<TwitterMainWidget> {
   var tweetList = List.generate(100, (i) => "aaaaaaaaaaaaaaaa");
 
+  var border = Container(
+    height: 1,
+    color: Colors.grey,
+  );
+
+  Widget createTwitterCard(String text) {
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Container(
+        padding: EdgeInsets.symmetric(vertical: 30),
+        child: Text(text),
+      ),
+      border,
+    ]);
+  }
+
   @override
   Widget build(BuildContext context) {
     var twitterAppBanner = AppBar(
@@ -25,12 +40,7 @@ class _TwitterMainWidgetState extends State<TwitterMainWidget> {
       itemCount: tweetList.length,
       itemBuilder: (context, index) {
         var tweet = tweetList[index];
-        return Card(
-          child: Container(
-            padding: EdgeInsets.all(30),
-            child: Text(tweet),
-          ),
-        );
+        return createTwitterCard(tweet);
       },
     );
 
