@@ -15,17 +15,105 @@ class _TwitterRightWidgetState extends State<TwitterRightWidget> {
       color: Colors.grey[250],
     );
 
-    Widget createRecommendRow(title) {
+    var boldStyle = TextStyle(
+      fontSize: 18.0,
+      color: Colors.grey[250],
+      fontWeight: FontWeight.w900,
+    );
+
+    var subtextStyle = TextStyle(
+      fontSize: 12.0,
+      color: Colors.blueGrey,
+    );
+
+    Widget createRecommendTagRow({String title, String subtitle}) {
+      if (subtitle != null) {
+        return Container(
+          padding: EdgeInsets.only(bottom: 10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                height: 10,
+              ),
+              Text(
+                title,
+                style: boldStyle,
+              ),
+              Container(
+                height: 5,
+              ),
+              Text(
+                subtitle,
+                style: subtextStyle,
+              ),
+            ],
+          ),
+        );
+      }
       return Container(
         padding: EdgeInsets.only(bottom: 10),
-        child: Text(
-          title,
-          style: textStyle,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              height: 10,
+            ),
+            Text(
+              title,
+              style: boldStyle,
+            ),
+          ],
         ),
       );
     }
 
-    var searchBar = Container(
+    Widget createRecommendUserRow(
+        {String displayName, String userName, bool isFollowed}) {
+      return Row(
+        children: [
+          Expanded(
+            child: ListTile(
+              title: Text(
+                displayName,
+                style: boldStyle,
+              ),
+              subtitle: Text(userName),
+              leading: Icon(
+                Icons.restaurant_menu,
+              ),
+            ),
+          ),
+          FlatButton(
+            padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
+            color: Colors.lightBlue,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(50.0),
+            ),
+            child: Text(
+              "フォロー",
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+            onPressed: () => {},
+          ),
+        ],
+      );
+    }
+
+    Widget nextButton = Container(
+      padding: EdgeInsets.symmetric(vertical: 10),
+      child: Text(
+        "さらに表示",
+        style: TextStyle(
+          fontSize: 20.0,
+          color: Colors.blue,
+        ),
+      ),
+    );
+
+    Widget searchBar = Container(
         height: 45,
         decoration: BoxDecoration(
           color: Colors.grey[200],
@@ -48,7 +136,7 @@ class _TwitterRightWidgetState extends State<TwitterRightWidget> {
           ),
         ));
 
-    var recomendTrendBox = Container(
+    Widget recomendTrendBox = Container(
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: Colors.grey[200],
@@ -65,7 +153,7 @@ class _TwitterRightWidgetState extends State<TwitterRightWidget> {
                 Expanded(
                   child: Text(
                     "おすすめトレンド",
-                    style: textStyle,
+                    style: boldStyle,
                   ),
                 ),
                 Icon(Icons.gps_not_fixed)
@@ -73,24 +161,18 @@ class _TwitterRightWidgetState extends State<TwitterRightWidget> {
             ),
           ),
           TwitterCommonPartsManager.shared.border,
-          createRecommendRow("aaaaaa"),
+          createRecommendTagRow(
+              title: "#終わらないドラクエ",
+              subtitle:
+                  "『DQX  いばらの巫女と滅びの神 オンライン』本日発売！CM公開中！\nドラゴンクエスト宣伝担当によるプロモーション"),
           TwitterCommonPartsManager.shared.border,
-          createRecommendRow("aaaaaa"),
+          createRecommendTagRow(title: "#童貞を卒業する年齢"),
           TwitterCommonPartsManager.shared.border,
-          createRecommendRow("aaaaaa"),
+          createRecommendTagRow(title: "#絶対に今すぐやめておけ"),
           TwitterCommonPartsManager.shared.border,
-          createRecommendRow("aaaaaa"),
+          createRecommendTagRow(title: "徳井さん"),
           TwitterCommonPartsManager.shared.border,
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 10),
-            child: Text(
-              "さらに表示",
-              style: TextStyle(
-                fontSize: 20.0,
-                color: Colors.blue,
-              ),
-            ),
-          ),
+          nextButton
         ],
       ),
     );
@@ -109,19 +191,21 @@ class _TwitterRightWidgetState extends State<TwitterRightWidget> {
             padding: EdgeInsets.symmetric(vertical: 3),
             child: Text(
               "おすすめユーザ",
-              style: textStyle,
+              style: boldStyle,
             ),
           ),
           TwitterCommonPartsManager.shared.border,
-          createRecommendRow("aaaaaa"),
+          createRecommendUserRow(displayName: "aaaaaa", userName: "@aaaaa"),
           TwitterCommonPartsManager.shared.border,
-          createRecommendRow("aaaaaa"),
+          createRecommendUserRow(displayName: "aaaaaa", userName: "@aaaaa"),
           TwitterCommonPartsManager.shared.border,
-          createRecommendRow("aaaaaa"),
+          createRecommendUserRow(displayName: "aaaaaa", userName: "@aaaaa"),
           TwitterCommonPartsManager.shared.border,
-          createRecommendRow("aaaaaa"),
+          createRecommendUserRow(displayName: "aaaaaa", userName: "@aaaaa"),
           TwitterCommonPartsManager.shared.border,
-          createRecommendRow("aaaaaa"),
+          createRecommendUserRow(displayName: "aaaaaa", userName: "@aaaaa"),
+          TwitterCommonPartsManager.shared.border,
+          nextButton,
         ],
       ),
     );

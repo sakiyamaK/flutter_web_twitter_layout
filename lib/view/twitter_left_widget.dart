@@ -23,10 +23,29 @@ class _TwitterLeftWidgetState extends State<TwitterLeftWidget> {
   Widget createListChildWidget(listData) {
     if (TwitterManager.shared.screenType == ScreenType.xl ||
         TwitterManager.shared.screenType == ScreenType.lg) {
-      return ListTile(
-          leading: Icon(listData["icon"]), title: Text(listData["text"]));
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Icon(
+            listData["icon"],
+            size: 35,
+            color: Colors.lightBlue,
+          ),
+          Container(
+            width: 20,
+          ),
+          Text(
+            listData["text"],
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+          ),
+        ],
+      );
     } else {
-      return ListTile(trailing: Icon(listData["icon"]));
+      return Icon(
+        listData["icon"],
+        size: 35,
+        color: Colors.lightBlue,
+      );
     }
   }
 
@@ -43,15 +62,26 @@ class _TwitterLeftWidgetState extends State<TwitterLeftWidget> {
           "ツイート",
           style: TextStyle(
             color: Colors.white,
+            fontSize: 18,
           ),
         ),
         onPressed: () => {},
       );
     } else {
-      return IconButton(
-        onPressed: () => {},
-        icon: Icon(Icons.add),
+      return RaisedButton(
+        child: Text(
+          "+",
+          style: TextStyle(color: Colors.white),
+        ),
         color: Colors.lightBlue,
+        shape: CircleBorder(
+          side: BorderSide(
+            color: Colors.lightBlue,
+            width: 1.0,
+            style: BorderStyle.solid,
+          ),
+        ),
+        onPressed: () {},
       );
     }
   }
@@ -59,7 +89,7 @@ class _TwitterLeftWidgetState extends State<TwitterLeftWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(right: 20),
+      padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
       child: ListView.builder(
         itemCount: lists.length + 1,
         itemBuilder: (context, index) {
