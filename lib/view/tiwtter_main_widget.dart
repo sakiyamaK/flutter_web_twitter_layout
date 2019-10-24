@@ -28,7 +28,10 @@ class _TwitterMainWidgetState extends State<TwitterMainWidget> {
         SizedBox(
           width: 10,
         ),
-        Text(text)
+        Text(
+          text,
+          style: TextStyle(fontSize: 18),
+        )
       ],
     );
 
@@ -81,7 +84,7 @@ class _TwitterMainWidgetState extends State<TwitterMainWidget> {
           children: [
             SizedBox(height: 10),
             topBar,
-            SizedBox(height: 5),
+            SizedBox(height: imageURL == null ? 0 : 15),
             imageView,
             SizedBox(height: 15),
             bottomBar,
