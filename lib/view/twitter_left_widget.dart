@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_twitter_layout/twitter_manager.dart';
+import 'package:flutter_twitter_layout/utility/twitter_manager.dart';
+import 'package:flutter_twitter_layout/utility/twitter_common_parts_manager.dart';
 
 class TwitterLeftWidget extends StatefulWidget {
   TwitterLeftWidget({Key key}) : super(key: key);
@@ -9,7 +10,7 @@ class TwitterLeftWidget extends StatefulWidget {
 
 class _TwitterLeftWidgetState extends State<TwitterLeftWidget> {
   var lists = [
-    {"icon": Icons.phone, "text": ""},
+    {"icon": Icons.account_balance, "text": ""},
     {"icon": Icons.home, "text": "ホーム"},
     {"icon": Icons.tag_faces, "text": "話題を検索"},
     {"icon": Icons.add_alert, "text": "通知"},
@@ -31,9 +32,7 @@ class _TwitterLeftWidgetState extends State<TwitterLeftWidget> {
             size: 35,
             color: Colors.lightBlue,
           ),
-          Container(
-            width: 20,
-          ),
+          SizedBox(width: 20),
           Text(
             listData["text"],
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),

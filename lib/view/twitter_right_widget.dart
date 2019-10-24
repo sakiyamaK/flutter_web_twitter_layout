@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_twitter_layout/utility/twitter_manager.dart';
+import 'package:flutter_twitter_layout/utility/twitter_common_parts_manager.dart';
 
 class TwitterRightWidget extends StatefulWidget {
   TwitterRightWidget({Key key}) : super(key: key);
@@ -33,16 +33,12 @@ class _TwitterRightWidgetState extends State<TwitterRightWidget> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                height: 10,
-              ),
+              SizedBox(height: 10),
               Text(
                 title,
                 style: boldStyle,
               ),
-              Container(
-                height: 5,
-              ),
+              SizedBox(height: 5),
               Text(
                 subtitle,
                 style: subtextStyle,
@@ -56,9 +52,7 @@ class _TwitterRightWidgetState extends State<TwitterRightWidget> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              height: 10,
-            ),
+            SizedBox(height: 10),
             Text(
               title,
               style: boldStyle,
@@ -80,7 +74,7 @@ class _TwitterRightWidgetState extends State<TwitterRightWidget> {
               ),
               subtitle: Text(userName),
               leading: Icon(
-                Icons.restaurant_menu,
+                Icons.supervised_user_circle,
               ),
             ),
           ),
@@ -238,17 +232,11 @@ class _TwitterRightWidgetState extends State<TwitterRightWidget> {
       child: Column(
         children: [
           searchBar,
-          Container(
-            height: 50,
-          ),
+          SizedBox(height: 50),
           recomendTrendBox,
-          Container(
-            height: 50,
-          ),
+          SizedBox(height: 50),
           recomendUserBox,
-          Container(
-            height: 50,
-          ),
+          SizedBox(height: 50),
           others
         ],
       ),

@@ -1,12 +1,8 @@
-import 'package:flutter/material.dart';
+enum ScreenType { xl, lg, md, sm, xs }
 
-class TwitterCommonPartsManager {
-  TwitterCommonPartsManager._privateConstructor();
-  static final TwitterCommonPartsManager shared =
-      TwitterCommonPartsManager._privateConstructor();
+class TwitterManager {
+  TwitterManager._privateConstructor();
+  static final TwitterManager shared = TwitterManager._privateConstructor();
 
-  Widget border = Container(
-    height: 1,
-    color: Colors.grey,
-  );
+  ScreenType screenType = ScreenType.xl;
 }
