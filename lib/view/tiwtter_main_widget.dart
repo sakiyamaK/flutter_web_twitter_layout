@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_twitter_layout/utility/twitter_common_parts_manager.dart';
 
 class TwitterMainWidget extends StatefulWidget {
   TwitterMainWidget({Key key}) : super(key: key);

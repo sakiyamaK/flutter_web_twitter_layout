@@ -12,9 +12,8 @@ class TwitterLargeScreen extends StatelessWidget {
       body: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Expanded(
+          Spacer(
             flex: 1,
-            child: Container(),
           ),
           Expanded(
             flex: 5,

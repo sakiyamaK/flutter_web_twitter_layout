@@ -229,7 +229,7 @@ class _TwitterRightWidgetState extends State<TwitterRightWidget> {
 
     return Container(
       padding: EdgeInsets.fromLTRB(30, 10, 20, 10),
-      child: Column(
+      child: ListView(
         children: [
           searchBar,
           SizedBox(height: 50),
