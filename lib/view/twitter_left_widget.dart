@@ -51,12 +51,12 @@ class _TwitterLeftWidgetState extends State<TwitterLeftWidget> {
   Widget createTweetButton() {
     if (TwitterManager.shared.screenType == ScreenType.xl ||
         TwitterManager.shared.screenType == ScreenType.lg) {
-      return FlatButton(
-        padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
-        color: Colors.lightBlue,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(50.0),
-        ),
+      return TextButton(
+        // padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+        // color: Colors.lightBlue,
+        // shape: RoundedRectangleBorder(
+        //   borderRadius: BorderRadius.circular(50.0),
+        // ),
         child: Text(
           "ツイート",
           style: TextStyle(
@@ -67,19 +67,19 @@ class _TwitterLeftWidgetState extends State<TwitterLeftWidget> {
         onPressed: () => {},
       );
     } else {
-      return RaisedButton(
+      return ElevatedButton(
         child: Text(
           "+",
           style: TextStyle(color: Colors.white),
         ),
-        color: Colors.lightBlue,
-        shape: CircleBorder(
-          side: BorderSide(
-            color: Colors.lightBlue,
-            width: 1.0,
-            style: BorderStyle.solid,
-          ),
-        ),
+        // color: Colors.lightBlue,
+        // shape: CircleBorder(
+        //   side: BorderSide(
+        //     color: Colors.lightBlue,
+        //     width: 1.0,
+        //     style: BorderStyle.solid,
+        //   ),
+        // ),
         onPressed: () {},
       );
     }

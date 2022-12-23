@@ -43,6 +43,13 @@ class _TwitterMainWidgetState extends State<TwitterMainWidget> {
               child: Image.network(
                 imageURL,
                 fit: BoxFit.fitWidth,
+                errorBuilder: (context, error, stackTrace) {
+                  print(error);
+                  return const Icon(
+                    Icons.error,
+                    color: Colors.red,
+                  );
+                },
               ),
             ),
           ));
@@ -108,30 +115,28 @@ class _TwitterMainWidgetState extends State<TwitterMainWidget> {
       ),
     );
 
-    var bottomBar = ButtonTheme.bar(
-      child: ButtonBar(
-        children: [
-          Icon(
-            Icons.add,
-            color: Colors.lightBlue,
-            size: 40,
-          ),
-          FlatButton(
-            padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-            color: Colors.lightBlue,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20.0),
+    var bottomBar = ButtonBar(
+      children: [
+        Icon(
+          Icons.add,
+          color: Colors.lightBlue,
+          size: 40,
+        ),
+        TextButton(
+          // padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+          // color: Colors.lightBlue,
+          // shape: RoundedRectangleBorder(
+          //   borderRadius: BorderRadius.circular(20.0),
+          // ),
+          child: Text(
+            "ツイート",
+            style: TextStyle(
+              color: Colors.white,
             ),
-            child: Text(
-              "ツイート",
-              style: TextStyle(
-                color: Colors.white,
-              ),
-            ),
-            onPressed: () => {},
           ),
-        ],
-      ),
+          onPressed: () => {},
+        ),
+      ],
     );
 
     return Container(

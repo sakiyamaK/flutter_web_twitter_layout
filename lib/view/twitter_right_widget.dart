@@ -78,12 +78,12 @@ class _TwitterRightWidgetState extends State<TwitterRightWidget> {
               ),
             ),
           ),
-          FlatButton(
-            padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
-            color: Colors.lightBlue,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(50.0),
-            ),
+          TextButton(
+            // padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
+            // color: Colors.lightBlue,
+            // shape: RoundedRectangleBorder(
+            //   borderRadius: BorderRadius.circular(50.0),
+            // ),
             child: Text(
               "フォロー",
               style: TextStyle(
